@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel= "stylesheet" href= "styles.css">
+    <title>System Front Page</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #4facfe, #00f2fe);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            text-align: center;
+            color: white;
+        }
+        h1 {
+            font-size: 50px;
+            margin-bottom: 30px;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Welcome to Flood Monitoring System <br>of Maigo, Lanao del Norte</h1>
+    <button onclick="redirectToLogin()">Login</button>
+</div>
+
+<script>
+    function redirectToLogin() {
+        window.location.href = 'login.php'; // Replace 'login.html' with your actual login page URL
+    }
+</script>
+
+</body>
+</html>

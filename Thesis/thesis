@@ -1,0 +1,82 @@
+import time
+import requests
+
+# Simulated Sensor Class for Flood Monitoring
+class FloodSensor:
+    def __init__(self, green_level, yellow_level, orange_level, red_level):
+        self.green_level = green_level
+        self.yellow_level = yellow_level
+        self.orange_level = orange_level
+        self.red_level = red_level
+        self.current_water_level = 0  # Initialize water level to 0
+
+    def read_water_level(self):
+        # Simulate reading water level from a sensor
+        # In a real system, this would interface with hardware
+        return self.current_water_level
+
+    def set_water_level(self, level):
+        # Simulate updating the water level for testing purposes
+        self.current_water_level = level
+
+# Notification System
+class NotificationSystem:
+    @staticmethod
+    def send_alert(level, message):
+        # Simulate sending an alert, e.g., SMS or email
+        print(f"ALERT [{level}]: {message}")
+
+        # Example for integrating with an external SMS API
+        # response = requests.post(
+        #     url="https://api.example.com/send_sms",
+        #     data={"message": message, "recipient": "+1234567890"}
+        # )
+        # print("Notification sent:", response.status_code)
+
+# Main Flood Monitoring System Class
+class FloodMonitoringSystem:
+    def __init__(self, sensor, notification_system):
+        self.sensor = sensor
+        self.notification_system = notification_system
+
+    def monitor(self):
+        print("Starting flood monitoring system...")
+        while True:
+            water_level = self.sensor.read_water_level()
+            print(f"Current water level: {water_level} meters")
+
+            if water_level >= self.sensor.red_level:
+                self.notification_system.send_alert("Red", f"CRITICAL: Water level at {water_level} meters. Immediate evacuation required!")
+            elif water_level >= self.sensor.orange_level:
+                self.notification_system.send_alert("Orange", f"WARNING: Water level at {water_level} meters. Prepare for possible evacuation.")
+            elif water_level >= self.sensor.yellow_level:
+                self.notification_system.send_alert("Yellow", f"CAUTION: Water level at {water_level} meters. Stay alert.")
+            elif water_level >= self.sensor.green_level:
+                print("Status: Water level is within safe range.")
+
+            time.sleep(5)  # Wait for 5 seconds before the next reading
+
+# Configuration
+GREEN_LEVEL = 0.0  # Green level threshold in meters
+YELLOW_LEVEL = 1.5  # Yellow level threshold in meters
+ORANGE_LEVEL = 2.5  # Orange level threshold in meters
+RED_LEVEL = 3.0  # Red level threshold in meters
+
+# Instantiate Components
+sensor = FloodSensor(GREEN_LEVEL, YELLOW_LEVEL, ORANGE_LEVEL, RED_LEVEL)
+notification_system = NotificationSystem()
+system = FloodMonitoringSystem(sensor, notification_system)
+
+# Simulating water level updates for testing purposes
+def simulate_water_level_changes():
+    test_levels = [0.5, 1.6, 2.6, 3.1, 1.0]
+    for level in test_levels:
+        print(f"Simulating water level: {level} meters")
+        sensor.set_water_level(level)
+        time.sleep(5)
+
+# Uncomment the line below to run the real-time monitoring
+# system.monitor()
+
+# Uncomment the line below to simulate water level changes
+simulate_water_level_changes()
