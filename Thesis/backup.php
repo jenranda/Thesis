@@ -14,6 +14,7 @@
 
   <?php include 'navbar.php'; ?>  <!-- Calls the Navbar -->
   <?php include 'dash.php'; ?>
+  <?php include 'footer.php'; ?>
 
     <!-- Backup & Restore Section -->
     <div class="container backup-restore">
