@@ -1,9 +1,3 @@
-<?php include 'navbar.php'; ?>  <!-- Calls the Navbar -->
-<?php include 'dash.php'; ?>
-<?php include 'connection.php'; ?>
-<?php include 'contact.php'; ?>
-<?php include 'graph.php'; ?>
-
   <!-- Calls the Dashboard Buttons -->
 
 <!DOCTYPE html>
@@ -17,6 +11,9 @@
     
 </head>
 <body>
+
+  <?php include 'navbar.php'; ?>  <!-- Calls the Navbar -->
+  <?php include 'dash.php'; ?>
 
     <!-- Backup & Restore Section -->
     <div class="container backup-restore">
@@ -57,7 +54,7 @@
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76Aq4zXbomLwW6fG6UnmyblF9OmKXBmW1R8Zkk5axl7RHEaOsyVj52X1LJq0zB" crossorigin="anonymous"></script>
     <script src="backup_restore.js"></script>
 
 </body>
