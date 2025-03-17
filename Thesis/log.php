@@ -62,7 +62,7 @@
     </style>
 </head>
 <body>
-
+    <?php include 'footer.php'; ?>
     <?php include 'navbar.php'; ?>
 <div class="wrapper">
     <div class="sidebar">
