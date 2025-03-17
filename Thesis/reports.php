@@ -29,9 +29,7 @@
 
     <!-- Include Dashboard Buttons -->
     <?php include 'dash.php'; ?>
-    <?php include 'connection.php'; ?>
-    <?php include 'contact.php'; ?>
-    <?php include 'log.php'; ?>
+    <?php include 'footer.php'; ?>
 
     <!-- Reports Section -->
     <div class="container mt-4">
